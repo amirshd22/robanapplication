@@ -18,6 +18,7 @@ import colors from "../../config/colors";
 import UserContext from "../../auth/context";
 import authStorage from "../../auth/storage";
 import authService from "../../services/authService";
+import ProfileContext from "../../auth/context";
 
 const validationSchema = Yup.object().shape({
   username: Yup.string().required("Username is required").label("Username"),

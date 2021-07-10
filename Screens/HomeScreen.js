@@ -12,11 +12,6 @@ const menu = [
     targeScreen: "music",
   },
   {
-    title: "time",
-    iconSvg: time,
-    targeScreen: "Timer",
-  },
-  {
     title: "todo list",
     iconSvg: todoIcon,
     targeScreen: "TodoList",

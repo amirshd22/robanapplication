@@ -15,7 +15,7 @@ export const updateProfile = async (data) => {
 };
 
 export const updateInterests = async (data) => {
-  return client.patch(`${endpoint}profile_update/interests/`, data);
+  return client.patch(`${endpoint}/profile_update/interests/`, data);
 };
 
 export const getInterests = async () => {

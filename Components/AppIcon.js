@@ -33,7 +33,7 @@ function AppIcon({
 const styles = StyleSheet.create({
   container: {
     width: 40,
-    height: 40,
+    height: 100,
     borderRadius: 20,
     justifyContent: "center",
     alignItems: "center",

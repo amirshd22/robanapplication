@@ -6,7 +6,7 @@ import DateTimePicker from "@react-native-community/datetimepicker";
 import colors from "../../config/colors";
 import AppListInfo from "../lists/AppListInfo";
 
-export default function AppDatePickerField({ name }) {
+export default function AppDatePickerField({ name, title }) {
   const { errors, setFieldValue, touched, values } = useFormikContext();
   const [show, setShow] = useState(false);
 
@@ -19,7 +19,7 @@ export default function AppDatePickerField({ name }) {
   return (
     <View style={styles.container}>
       <AppListInfo
-        title="انتخاب تاریخ تولد"
+        title={title}
         onPress={() => setShow(!show)}
         style={styles.btn}
       />
@@ -58,5 +58,6 @@ const styles = StyleSheet.create({
   btn: {
     borderRadius: 15,
     width: "100%",
+    marginVertical: 5,
   },
 });

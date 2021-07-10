@@ -20,12 +20,12 @@ const menuItems = [
   {
     title: "پشتیبانی",
     icon: { name: "headphones", backgroundColor: colors.secondary },
-    targeScreen: "aboutUs",
+    targeScreen: "contactUs",
   },
   {
     title: "درباره ما",
     icon: { name: "head-question", backgroundColor: colors.secondary },
-    targeScreen: "contactUs",
+    targeScreen: "aboutUs",
   },
 ];
 
@@ -101,7 +101,7 @@ export default function SettingsScreen({ navigation }) {
           subTitle={
             !user.name ? "پروفایل خود را در قسمت پروفایل کامل کنید" : user.name
           }
-          style={{ borderRadius: 20, width: "100%" }}
+          style={{ borderRadius: 20, width: "100%", marginVertical: 5 }}
           onPress={changeProfilePic}
           changeImage
         />
@@ -111,6 +111,7 @@ export default function SettingsScreen({ navigation }) {
         style={{ width: "100%" }}
         data={menuItems}
         keyExtractor={(item) => item.title}
+        ItemSeparatorComponent={() => <View style={{ height: 10 }}></View>}
         renderItem={({ item }) => (
           <AppListInfo
             title={item.title}

@@ -3,12 +3,17 @@ import { View, StyleSheet, TouchableOpacity } from "react-native";
 
 import AppText from "./AppText";
 import colors from "../config/colors";
-
-function PickerItem({ label, onPress }) {
+import AppWidget from "./AppWidget";
+function PickerItem({ label, onPress, svgItem }) {
   return (
     <TouchableOpacity onPress={onPress}>
       <View style={styles.container}>
-        <AppText style={{ color: colors.secondary }}>{label}</AppText>
+        {svgItem && (
+          <AppWidget iconImage={svgItem} title="" onPress={onPress} />
+        )}
+        {!svgItem && (
+          <AppText style={{ color: colors.secondary }}>{label}</AppText>
+        )}
       </View>
     </TouchableOpacity>
   );

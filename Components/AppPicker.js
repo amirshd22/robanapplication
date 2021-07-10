@@ -12,6 +12,7 @@ function AppPicker({
   items,
   onSelectItem,
   selectedItem,
+  numOfColumns,
 }) {
   const [showModel, setShowModel] = useState(false);
   return (
@@ -36,6 +37,7 @@ function AppPicker({
         </View>
       </TouchableOpacity>
       <AppModel
+        numOfColumns={numOfColumns}
         items={items}
         visible={showModel}
         handleClose={() => setShowModel(false)}

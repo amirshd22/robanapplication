@@ -70,7 +70,7 @@ const styles = StyleSheet.create({
     padding: 15,
     alignItems: "center",
     backgroundColor: colors.input,
-    marginVertical: 5,
+
     width: "100%",
   },
   image: {

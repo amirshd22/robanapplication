@@ -21,19 +21,25 @@ import PickerField from "./PickerField";
 import { getProfile, updateProfile } from "../../services/profileService";
 import AppListInfo from "../lists/AppListInfo";
 import ActivityIndicator from "../ActivityIndicator";
-
+import { male, female } from "../../assets/character";
 const validationSchema = Yup.object().shape({
   name: Yup.string().label("Name"),
   gender: Yup.string().nullable().label("Gender"),
+  character: Yup.string().nullable().label("Character"),
   lastName: Yup.string().min(3).label("Last Name"),
   city: Yup.string().min(3).label("City"),
   birth_day_date: Yup.string().label("Birth_date_day"),
 });
 
 const genders = [
-  { label: "male", id: 1 },
-  { label: "female", id: 2 },
-  { label: "other", id: 3 },
+  { label: "male", id: 1, svgItem: false },
+  { label: "female", id: 2, svgItem: false },
+  { label: "other", id: 3, svgItem: false },
+];
+
+const characters = [
+  { label: "antony", id: 1, svgItem: male },
+  { label: "jessie", id: 2, svgItem: female },
 ];
 
 export default function AppCompleteProfile() {
@@ -80,6 +86,7 @@ export default function AppCompleteProfile() {
           initialValues={{
             name: !data.profile ? "" : data.profile.name,
             gender: !data.profile ? null : data.profile.gender,
+            character: !data.profile ? null : data.profile.character,
             lastName: !data.profile ? "" : data.profile.lastName,
             city: !data.profile ? "" : data.profile.city,
             birth_day_date: !data.profile
@@ -117,6 +124,12 @@ export default function AppCompleteProfile() {
                 items={genders}
                 width="100%"
               />
+              <PickerField
+                name="character"
+                placeholder="شخصیت"
+                items={characters}
+                width="100%"
+              />
               <FormField
                 name="city"
                 autoCapitalize="none"
@@ -126,7 +139,10 @@ export default function AppCompleteProfile() {
                 keyboardType="default"
                 placeholder="شهر"
               />
-              <AppDatePickerField name="birth_day_date" />
+              <AppDatePickerField
+                title="انتخاب تاریخ تولد"
+                name="birth_day_date"
+              />
             </View>
             <View style={styles.btnContainer}>
               <SubmitButton
